@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="vue.js"></script>
+<body>
+    <div id="app">
+        姓名:<input v-model="stu.name"><br>
+        性别:<input v-model="stu.gender" type="radio" value="0">女
+             <input v-model="stu.gender" type="radio" value="1">男<br>
+        年龄:<input  v-model="stu.age"><br>
+        爱好:<input v-model="stu.hobby" type="checkbox" value="0">篮球
+             <input v-model="stu.hobby" type="checkbox" value="1">足球
+             <input v-model="stu.hobby" type="checkbox" value="2">看电影<br>
+        专业:<select v-model="stu.major">
+                <option value="0">请选择</option>
+                <option value="1">大数据</option>
+                <option value="2">全栈开发</option>
+                <option value="3">物联网</option>
+
+             </select>
+    </div>
+
+</body>
+<script>
+    var app = new Vue({
+        el:"#app",
+        data:{
+            /*参数可以是对象,也可以是属性.
+            * v-model就是双向绑定input,select等中的值
+            * */
+
+            stu:{
+                name:"",
+                gender:0,
+                age:null,
+                hobby:[],
+                major:1
+            }
+
+        }
+    })
+</script>
+</html>

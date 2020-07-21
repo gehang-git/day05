@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="vue.js"></script>
+<body>
+    <div id="app">
+        <span>大数据方向有{{num}}</span>
+        <button v-on:click="num++">学生人数加1</button>
+        <button @click="incr(100)">学生人数加100</button>
+        <button v-on:click="decr">学生人数减1</button>
+    </div>
+
+</body>
+<script>
+    var app = new Vue({
+        el:"#app",
+        data:{
+           num:0
+        },
+        methods:{
+            decr(){
+                this.num--;
+            },
+            incr(num){
+                this.num=this.num+num;
+            }
+        }
+    })
+</script>
+</html>

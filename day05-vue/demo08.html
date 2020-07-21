@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="vue.js"></script>
+<body>
+    <div id="demo">
+        所属公司:
+        <select v-model="did">
+            <option value="1">百度</option>
+            <option value="2">腾讯</option>
+            <option value="3">阿里</option>
+
+        </select>
+    </div>
+</body>
+<script>
+    var demo = new Vue({
+        el:"#demo",
+        data:{
+           did:null
+        },
+        watch:{/*监视每个数据变量是否发生变化*/
+            did(newV,oldV){
+                console.log(oldV+"\\"+newV);
+            }
+        }
+
+    })
+
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="vue.js"></script>
+<body>
+    <div id="demo">
+        {{shuzi}}
+        <input type="button" value="加1" v-on:click="add">
+        <input type="button" value="加10" v-on:click="bigadd">
+    </div>
+</body>
+<script>
+    var demo = new Vue({
+        el:"#demo",
+        data:{
+            shuzi:12
+        },
+        methods:{
+
+
+            add(){
+                this.shuzi++;
+            },
+            bigadd(){
+                this.shuzi=this.shuzi+10;
+            }
+
+        },
+        created(){
+            this.shuzi = 100;
+        }
+    })
+
+</script>
+</html>

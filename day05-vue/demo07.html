@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-if/v-show</title>
+    <style>
+        .c1{
+            border: 1px solid red;
+            width:100px;
+            height: 100px;
+        }
+        .c2{
+            background-color: black;
+        }
+        .c3{
+            border: 1px solid black;
+            width:100px;
+            height: 100px;
+        }
+
+    </style>
+</head>
+<script src="vue.js"></script>
+<body>
+    <div id="app">
+        <div v-bind:title="title" :style="[mystyle,mystyle2]"></div>
+        <div :class="[myclass1,myclass2]">div2</div>
+        <div :class="{c3:hasC3Class}">div3</div>
+        <button @click="hasC3Class=!hasC3Class">切换央视</button>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el:"#app",
+        data:{
+            title:"动态标题",
+            mystyle:{border: '1px solid red',width: '50px',height: '50px'},
+            mystyle2:{'background-color':'blue'},
+            myclass1:"c1",
+            myclass2:"c2",
+            hasC3Class:false
+        }
+    })
+</script>
+</html>

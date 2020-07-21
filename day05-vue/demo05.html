@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .d1{
+            width:100px;
+            height: 100px;
+            background-color: red;
+        }
+        .d2{
+            width:50px;
+            height: 50px;
+            background-color: white;
+        }
+
+    </style>
+</head>
+<script src="vue.js"></script>
+<body>
+    <div id="app">
+        <div class="d1" id="d1" @click="show('我是div1')">
+            <div class="d2" id="d2" @click.stop="show('我是div2')">
+
+            </div>
+        </div>
+        <h1>有{{num}}</h1>
+        <button v-on:contextmenu.prevent="num++">增加一个</button>
+        <button @keyup.13="submit">提交</button><br>
+        <!--组合键-->
+        <button @keyup.ctrl.67="copy">复制</button>
+    </div>
+
+</body>
+<script>
+    var app = new Vue({
+        /*事件冒泡,点击div2时会触发div1中的时间
+        *   通过事件修饰符停职触发
+        *   .stop
+        * 其他还有:
+        *   .prevent阻止默认事件发生
+        *   .capture使用事件捕获模式
+        * */
+        el:"#app",
+        data:{
+            num:100
+        },
+        methods:{
+            show(msg){
+                alert(msg);
+            },
+            //按键修饰符
+            submit() {
+                alert("提交")
+            },
+            copy(){
+                alert("触发复制")
+            }
+        }
+
+    })
+</script>
+</html>
